@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>多维数组变成一维数组&数组取最大值||最小值</h3>
+</body>
+<script>
+    var i = 10;
+    var arrM = [];
+    for (var i = 0; i < 10; i++) {
+        arrM.push(i * i);
+    };
+    Array.prototype.isMax = function () { //同理 最小值也是同样的方法Math.min
+        // console.log(this)      this指向
+        return Math.max.apply(null, this); // apply 接受参数为数组，call 不接受数组而是固定的值
+    };
+    var x = arrM.isMax();
+    console.log(x);
+
+
+
+    var arr = [
+        2, [
+            3, 4, 6
+        ],
+        34, [
+            3, [34, 45, [12, 34, 56, 87, 87]]
+        ]
+    ];
+    var paipin = function (arr) {
+        var newArr = [];
+        var isArray = function (obj) {
+            return Object.prototype.toString.call(obj) == '[object Array]'; //判断是否是数组 
+        };
+        var isPush = function (arr) {
+            for (var i = 0; i < arr.length; i++) {
+                isArray(arr[i]) ? isPush(arr[i]) : newArr.push(arr[i]); // 递归调用
+            }
+        };
+        isPush(arr);
+        return newArr;
+    }
+    var arr2 = paipin(arr);
+    console.log(arr2);
+    var join_paipin = function (arr) {
+        var newArr = [];
+        var arrString = arr.join('.').replace(/,/g, '.').split('.'); //这样得到的数组是字符串
+        arrString.map(function (val) {
+            newArr.push(Number(val))
+        });
+        return newArr;
+    }
+    console.log(join_paipin(arr))
+</script>
+
+</html>
