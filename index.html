@@ -5,10 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        div{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width: 400px;
+            height: 400px;
+            background: green;
+            position: relative;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top:400px;
+            left:400px;
+            display: none;
+        }
+        /* #box:hover +#box2{
+            display: block;
+            top:-10px;
+        } */
+        #box:hover +#box3{
+            color: red;
+        }
+        /* #box2:hover{
+            display: block;
+            top:-10px;
+        } */
+    </style>
 </head>
 <body>
     <h3>下周复习 node.js</h3>
     <p> node 聊天室</p>
+    <div id="box">
+        
+    </div>
+    <!-- <div id="box2">
+        哈哈哈哈哈哈哈哈哈哈哈哈
+    </div> -->
+    <div id="box3">
+        变颜色
+    </div>
 </body>
     
 </html>
