@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h4>
+
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+    </h4>
+</body>
+<script>
+    function unique(Arr) {
+        var arr = [];
+        for (var i = 0; i < Arr.length; i++) {
+            if (arr.indexOf(Arr[i]) == -1) {
+                arr.push(Arr[i]);
+            };
+        };
+        return arr;
+    };
+    var arr = [1, 2, 1, 2];
+    arr = unique(arr);
+    console.log(arr);
+    //ES6 Set对象允许你存储任何类型的 唯一值，而Set 中的值总是唯一的，Set返回的是对象
+    //还需要通过Array.from()，在一个类数组或者可迭代的对象中，创建一个新的 数组实例
+    var Arr=Array.from(new Set(arr));
+    console.log(Arr)
+</script>
+</html>

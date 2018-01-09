@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span id="text"></span>
+    </div>
+    <button id="btn" onclick="daojishi()">点击重发</button>
+</body>
+<script>
+    var btn=document.getElementById('btn');
+    var text=document.getElementById('text');
+    var flag=false;
+    var dao=function(t){
+        return new Promise(function(resolve,reject){
+            var x=10;
+            flag=true;
+            text.innerHTML=x+'s;重新发送';
+           var t=setInterval(function(){
+                x--;
+                text.innerHTML=x+'s;重新发送';
+                if(x<=0){
+                    clearInterval(t);
+                    resolve(false);
+                }
+            },1000)
+        });
+    };
+    var dianji= async function(){
+        flag=await dao(10*1000);
+    };
+    var daojishi=function(){
+        if(flag) return;
+        dianji();
+    }
+</script>
+</html>
