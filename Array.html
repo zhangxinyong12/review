@@ -20,6 +20,7 @@
     Array.prototype.isMax = function () { //同理 最小值也是同样的方法Math.min
         // console.log(this)      this指向
         return Math.max.apply(null, this); // apply 接受参数为数组，call 不接受数组而是固定的值
+        // return Math.max(...this) //es6 
     };
     var x = arrM.isMax();
     console.log(x);
